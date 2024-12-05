@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Soho Template">
+    <meta name="keywords" content="Soho, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Edit Room Type</title>
+    <header th:replace="hotel/header :: header"></header>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/elegant-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <style>
+        .body1 {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .edit-form-container {
+            background-color: #ffffff;
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        .edit-form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .edit-form-container input,
+        .edit-form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .edit-form-container textarea {
+            resize: none;
+            height: 80px;
+        }
+
+        .buttonedit {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .buttonedit:hover {
+            background-color: #45a049;
+        }
+
+        .edit-form-container a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 16px;
+        }
+
+        .edit-form-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+</head>
+<body class="body1">
+<h2>Edit Room Type</h2>
+
+<div class="edit-form-container">
+    <form th:action="@{'/room-types/edit/' + ${roomType.id}}" th:object="${roomType}" method="post">
+        <!-- Trường ẩn để gửi id -->
+        <input type="hidden" th:field="*{id}" />
+
+        <label for="roomTypeName">Room Type Name:</label>
+        <input type="text" id="roomTypeName" th:field="*{roomTypeName}" />
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" th:field="*{price}" />
+
+        <label for="people">People:</label>
+        <input type="number" id="people" th:field="*{people}" />
+
+        <label for="bed">Bed:</label>
+        <input type="number" id="bed" th:field="*{bed}" />
+
+        <label for="description">Description:</label>
+        <textarea id="description" th:field="*{description}"></textarea>
+
+        <button class="buttonedit" type="submit">Save</button>
+    </form>
+    <div style="text-align: center;">
+        <a th:href="@{/room-types}">Cancel</a>
+    </div>
+</div>
+<div>
+    <!-- Footer được chèn vào đây -->
+    <footer th:replace="~{hotel/footer :: footer}"></footer>
+</div>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{/js/jquery-ui.min.js}"></script>
+<script th:src="@{/js/jquery.slicknav.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Soho Template">
+    <meta name="keywords" content="Soho, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create New Room Type</title>
+    <header th:replace="hotel/header :: header"></header>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/css/elegant-icons.css}">
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/nice-select.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery-ui.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+    <link rel="stylesheet" th:href="@{/css/slicknav.min.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+
+    <style>
+        /* CSS chỉ áp dụng cho input trong form này */
+        .div1 input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        .div1 input[type="number"]::-webkit-outer-spin-button,
+        .div1 input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Căn chỉnh form ở giữa */
+        .div1 {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Tiêu đề */
+        .div1 h1 {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Label */
+        .div1 label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        /* Input và textarea */
+        .div1 input[type="text"],
+        .div1 input[type="number"],
+        .div1 textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Button */
+        .buttonnew {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttonnew:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+</head>
+<body class="body1">
+<div class="div1">
+    <h1>Create New Room Type</h1>
+    <form th:action="@{/room-types/create}" th:object="${roomType}" method="post">
+        <input type="hidden" th:field="*{id}" />
+
+        <label>Room Type Name:</label>
+        <input type="text" th:field="*{roomTypeName}" required />
+
+        <label>Price:</label>
+        <input type="text" th:field="*{price}" required />
+
+        <label>People:</label>
+        <input type="number" th:field="*{people}" required />
+
+        <label>Bed:</label>
+        <input type="number" th:field="*{bed}" required />
+
+        <label>Description:</label>
+        <textarea th:field="*{description}" required></textarea>
+
+        <button class="buttonnew" type="submit">Save</button>
+    </form>
+</div>
+<div>
+    <!-- Footer được chèn vào đây -->
+    <footer th:replace="~{hotel/footer :: footer}"></footer>
+</div>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script th:src="@{/js/jquery.nice-select.min.js}"></script>
+<script th:src="@{/js/jquery-ui.min.js}"></script>
+<script th:src="@{/js/jquery.slicknav.js}"></script>
+<script th:src="@{/js/owl.carousel.min.js}"></script>
+<script th:src="@{/js/main.js}"></script>
+</body>
+</html>
